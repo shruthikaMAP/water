@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url("assets/water-bg.jpg") no-repeat center center/cover;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 50, 0.5);
+  z-index: -2;
+}
+
+/* Ripple Effect Layer */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 200%; height: 200%;
+  background: url("assets/ripple.png") repeat;
+  opacity: 0.2;
+  animation: rippleMove 20s linear infinite;
+  z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.6);
+  border-bottom: 2px solid #00c6ff;
+}
+.navbar h2 {
+  color: #00e6ff;
+}
+.navbar nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.navbar nav a:hover {
+  color: #00e6ff;
+  text-shadow: 0 0 10px #00e6ff;
+}
+
+/* Home Page */
+.home {
+  text-align: center;
+  margin-top: 120px;
+  animation: fadeIn 2s ease-in-out;
+}
+.home h1 {
+  font-size: 3rem;
+  color: #00e6ff;
+  text-shadow: 0 0 15px #000;
+}
+.home p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #00c6ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #0099cc;
+  transform: scale(1.1);
+}
+
+/* Forms */
+.form-container {
+  max-width: 400px;
+  margin: 120px auto;
+  padding: 35px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,230,255,0.5);
+}
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #00e6ff;
+}
+.form-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+.form-container button {
+  padding: 12px;
+  width: 100%;
+  background: #00c6ff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form-container button:hover {
+  background: #0099cc;
+}
+
+/* Detection Page */
+.detection {
+  text-align: center;
+  margin-top: 100px;
+}
+.detection h2 {
+  color: #00e6ff;
+  margin-bottom: 20px;
+}
+#statusBox {
+  background: rgba(0,0,0,0.6);
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,230,255,0.5);
+}
+#statusBox span {
+  font-weight: bold;
+}
+/* Water Wave Effect Inside Status Box */
+#statusBox {
+  position: relative;
+  background: rgba(0,0,0,0.6);
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,230,255,0.5);
+  overflow: hidden;
+}
+
+.water-wave {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: rgba(0,230,255,0.4);
+  border-radius: 40%;
+  animation: waveAnimation 6s infinite linear;
+  transform: translateX(-25%);
+  z-index: 0;
+}
+
+/* Text stays above the wave */
+#statusBox p, #statusBox span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Wave movement */
+@keyframes waveAnimation {
+  0% { transform: translateX(-25%) translateY(0); }
+  50% { transform: translateX(-30%) translateY(-10px); }
+  100% { transform: translateX(-25%) translateY(0); }
+}
+
+/* Water rises higher when leak is detected */
+#statusBox.leak .water-wave {
+  bottom: 0;
+  background: rgba(255,0,0,0.4);
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rippleMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-200px, -200px); }
+}
+/* Chart Section */
+.chart-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,230,255,0.5);
+  text-align: center;
+}
+.chart-container h3 {
+  margin-bottom: 15px;
+  color: #00e6ff;
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Wastage Detection</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="navbar">
+    <h2>💧 Water Wastage Detection</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </div>
+
+  <section class="detection">
+    <h2>Real-time Water Flow</h2>
+    <div id="statusBox">
+      <div class="water-wave" id="waterWave"></div>
+      <p>Current Flow Rate: <span id="flowRate">0</span> L/min</p>
+      <p>Status: <span id="leakStatus">Normal</span></p>
+    </div>
+    <button onclick="simulateFlow()">Simulate Flow</button>
+
+    <!-- Chart Section -->
+    <div class="chart-container">
+      <h3>Flow Rate Over Time</h3>
+      <canvas id="flowChart"></canvas>
+    </div>
+  </section>
+</body>
+</html>
